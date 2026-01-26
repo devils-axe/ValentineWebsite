@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day</title>
+
   <style>
+    /* ===== Base Layout ===== */
+
     body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
       background-color: #FFC0CB;
       text-align: center;
       font-family: Arial, sans-serif;
@@ -22,6 +26,8 @@
       color: #C71585;
       margin-bottom: 20px;
     }
+
+    /* ===== Buttons ===== */
 
     .buttons {
       display: flex;
@@ -46,19 +52,27 @@
       background-color: #FF69B4;
       color: white;
     }
-    #yes:hover { transform: scale(1.05); }
+
+    #yes:hover {
+      transform: scale(1.05);
+    }
 
     #no {
       background-color: #DC143C;
       color: white;
     }
-    #no:hover { transform: scale(1.05); }
 
-    #gif-container, #benefits-container, #memories-container {
+    #no:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== GIF Sections ===== */
+
+    #gif-container,
+    #benefits-container {
       display: none;
       margin-top: 30px;
       text-align: center;
-      width: 100%;
     }
 
     .gif-row {
@@ -68,11 +82,14 @@
       gap: 10px;
       margin-bottom: 20px;
     }
+
     .gif-row img {
+      width: 150px;
       max-width: 100%;
       height: auto;
-      width: 150px;
     }
+
+    /* ===== Benefits Section ===== */
 
     .benefits {
       font-size: 1.8rem;
@@ -112,118 +129,50 @@
     }
 
     .benefit-gif {
+      width: 150px;
       max-width: 100%;
       height: auto;
-      width: 150px;
-    }
-
-    /* NEW: Photo + video section */
-    .memories-title {
-      font-size: 1.9rem;
-      color: #C71585;
-      margin-bottom: 15px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto 18px;
-      padding: 0 10px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    @media (max-width: 800px) {
-      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .gallery img { height: 240px; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery { grid-template-columns: 1fr; }
-      .gallery img { height: 320px; }
-    }
-
-    .video-wrap {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 10px;
-    }
-
-    video {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .note {
-      margin-top: 8px;
-      color: #8B0F5A;
-      font-size: 0.95rem;
     }
   </style>
 </head>
+
 <body>
+
+  <!-- ===== Title ===== -->
 
   <h1>Layla, will you be my Valentine?</h1>
 
-  <!-- GIFs displayed before pressing anything -->
+  <!-- ===== Initial GIF Row ===== -->
+
   <div class="gif-row">
-    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHgzdWQ0bGJmZmN3eHVxMnl0OGQ5cG80OHpsYTNkajg1cHZjMGNnMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif" alt="First Cute GIF">
-    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnQ4aW5zMzVjemhrYTFndnY2eDdkNHF1bDl2NHQ3dGNiajJ6bGk3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0OgdJVNjbcIifqSb7U/giphy.gif" alt="Second Cute GIF">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHgzdWQ0bGJmZmN3eHVxMnl0OGQ5cG80OHpsYTNkajg1cHZjMGNnMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnQ4aW5zMzVjemhrYTFndnY2eDdkNHF1bDl2NHQ3dGNiajJ6bGk3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0OgdJVNjbcIifqSb7U/giphy.gif">
   </div>
+
+  <!-- ===== Buttons ===== -->
 
   <div class="buttons">
     <button id="yes" onclick="showBenefits()">Yes</button>
     <button id="no" onclick="changeToReally()">No</button>
   </div>
 
-  <!-- First GIF (Shows on first NO click) -->
+  <!-- ===== Reaction GIF ===== -->
+
   <div id="gif-container">
     <img id="gif" class="benefit-gif"
-      src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdpMGY3bm4xanp3eTd4c2M0bnpoYjNpMGRna294YzZoMGQ5bzJ3eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VeOAG5fkGAdEodtKfW/giphy.gif"
-      alt="Reaction GIF">
+      src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdpMGY3bm4xanp3eTd4c2M0bnpoYjNpMGRna294YzZoMGQ5bzJ3eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VeOAG5fkGAdEodtKfW/giphy.gif">
   </div>
 
-  <!-- NEW: Photos + Video (shows after YES) -->
-  <div id="memories-container">
-    <div class="memories-title">🥰 Us (my favorite people)</div>
+  <!-- ===== Benefits Section ===== -->
 
-    <div class="gallery">
-      <img src="assets/photos/pic1.jpg" alt="Memory photo 1">
-      <img src="assets/photos/pic2.jpg" alt="Memory photo 2">
-      <img src="assets/photos/pic3.jpg" alt="Memory photo 3">
-    </div>
-
-    <div class="video-wrap">
-      <video id="surpriseVideo" controls playsinline preload="metadata">
-        <source src="assets/video/surprise.mov" type="video/quicktime">
-        <!-- If you convert to MP4 later, add this too (better for web):
-        <source src="assets/video/surprise.mp4" type="video/mp4">
-        -->
-        Your browser does not support the video tag.
-      </video>
-      <div class="note">If it doesn’t autoplay, just press play 💗</div>
-    </div>
-  </div>
-
-  <!-- Benefits of Saying Yes -->
   <div id="benefits-container">
+
     <div class="benefits">Benefits of being my Valentine:</div>
 
     <div class="benefits-wrapper">
+
       <img class="benefit-gif"
-        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamZncjlxbjN5bTZzZ2NqenYwa25oeHA3NnlqMThqM2FnNDUydXl1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GYGzW1EVId5C/giphy.gif"
-        alt="Chocolates GIF">
+        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamZncjlxbjN5bTZzZ2NqenYwa25oeHA3NnlqMThqM2FnNDUydXl1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GYGzW1EVId5C/giphy.gif">
 
       <ul class="benefits-list">
         <li class="benefit-item">💖 You get me (all you need really)</li>
@@ -232,10 +181,12 @@
       </ul>
 
       <img class="benefit-gif"
-        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHQwaXdhZ2tuYTJnOTNhOWwzdmYza204cDR3ZGFwMGlqeWJ1M2g3dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fx5e8vTQDs1Mc/giphy.gif"
-        alt="Mochi Blue Roses GIF">
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHQwaXdhZ2tuYTJnOTNhOWwzdmYza204cDR3ZGFwMGlqeWJ1M2g3dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fx5e8vTQDs1Mc/giphy.gif">
+
     </div>
   </div>
+
+  <!-- ===== JavaScript ===== -->
 
   <script>
     function changeToReally() {
@@ -257,26 +208,15 @@
       noButton.style.backgroundColor = "#FF69B4";
       noButton.onclick = showBenefits;
 
-      gif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWg4M255MTF5ajB2aGRoMjdobjkwYmVzNHJhbWVyajA5ZWJuMXIxZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KmxmoHUGPDjfQXqGgv/giphy.gif";
+      gif.src =
+        "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWg4M255MTF5ajB2aGRoMjdobjkwYmVzNHJhbWVyajA5ZWJuMXIxZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KmxmoHUGPDjfQXqGgv/giphy.gif";
     }
 
     function showBenefits() {
-      document.getElementById("memories-container").style.display = "block";   // show photos+video
-      document.getElementById("benefits-container").style.display = "block";   // show benefits
-      document.querySelector(".buttons").style.display = "none";              // hide buttons
-
-      // Try autoplay (will work in some browsers if muted; with sound usually blocked)
-      const vid = document.getElementById("surpriseVideo");
-      if (vid) {
-        // Uncomment these 2 lines if you want autoplay muted:
-        // vid.muted = true;
-        // vid.play().catch(() => {});
-      }
+      document.getElementById("benefits-container").style.display = "block";
+      document.querySelector(".buttons").style.display = "none";
     }
   </script>
 
 </body>
 </html>
-
-
-
