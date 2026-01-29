@@ -159,11 +159,19 @@
     z-index: 1;
   }
 
-  /* On smaller screens, hide side images */
-  @media (max-width: 900px) {
-    .side-photo {
-      display: none;
-    }
+  html {
+  zoom: 125%;
+}
+
+/* optional: keep mobile normal-sized */
+@media (max-width: 900px) {
+  html {
+    zoom: 100%;
+  }
+}
+
+
+
   }
 </style>
 
@@ -257,4 +265,3 @@
 
 </body>
 </html>
-
