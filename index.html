@@ -132,11 +132,50 @@
       width: 150px;
       max-width: 100%;
       height: auto;
+
+      /* ===== Side Photos ===== */
+
+.side-photo {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Left side */
+.left-photo {
+  left: 20px;
+}
+
+/* Right side */
+.right-photo {
+  right: 20px;
+}
+
+/* Keep main content on top */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile safety */
+@media (max-width: 700px) {
+  .side-photo {
+    display: none;
+  }
+}
+
     }
   </style>
 </head>
 
 <body>
+
+  <img class="side-photo left-photo" src="pic1.JPG" alt="Left photo">
+<img class="side-photo right-photo" src="pics2.jpg" alt="Right photo">
 
   <!-- ===== Title ===== -->
 
@@ -220,3 +259,4 @@
 
 </body>
 </html>
+
