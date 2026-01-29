@@ -6,170 +6,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day</title>
 
-  <style>
-    /* ===== Base Layout ===== */
+<style>
+  /* ===== Base Layout ===== */
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;   /* changed from height to min-height */
+    background-color: #FFC0CB;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
 
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #FFC0CB;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      padding: 10px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #C71585;
-      margin-bottom: 20px;
-    }
-
-    /* ===== Buttons ===== */
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 30px;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    button {
-      font-size: 1.2rem;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s;
-      width: 100%;
-    }
-
-    #yes {
-      background-color: #FF69B4;
-      color: white;
-    }
-
-    #yes:hover {
-      transform: scale(1.05);
-    }
-
-    #no {
-      background-color: #DC143C;
-      color: white;
-    }
-
-    #no:hover {
-      transform: scale(1.05);
-    }
-
-    /* ===== GIF Sections ===== */
-
-    #gif-container,
-    #benefits-container {
-      display: none;
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .gif-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .gif-row img {
-      width: 150px;
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* ===== Benefits Section ===== */
-
-    .benefits {
-      font-size: 1.8rem;
-      color: #C71585;
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .benefits-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      max-width: 900px;
-      width: 100%;
-    }
-
-    .benefits-list {
-      text-align: left;
-      font-size: 1.3rem;
-      color: #C71585;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      line-height: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-
-    .benefit-gif {
-      width: 150px;
-      max-width: 100%;
-      height: auto;
-
-      /* ===== Side Photos ===== */
-
-.side-photo {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 220px;
-  height: auto;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Left side */
-.left-photo {
-  left: 20px;
-}
-
-/* Right side */
-.right-photo {
-  right: 20px;
-}
-
-/* Keep main content on top */
-body > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Mobile safety */
-@media (max-width: 700px) {
-  .side-photo {
-    display: none;
+    overflow-x: hidden; /* stops horizontal scroll */
   }
-}
 
+  h1 {
+    font-size: 2.5rem;
+    color: #C71585;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Buttons ===== */
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+  }
+
+  #yes {
+    background-color: #FF69B4;
+    color: white;
+  }
+
+  #yes:hover {
+    transform: scale(1.05);
+  }
+
+  #no {
+    background-color: #DC143C;
+    color: white;
+  }
+
+  #no:hover {
+    transform: scale(1.05);
+  }
+
+  /* ===== GIF Sections ===== */
+  #gif-container,
+  #benefits-container {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .gif-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .gif-row img {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ===== Benefits Section ===== */
+  .benefits {
+    font-size: 1.8rem;
+    color: #C71585;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .benefits-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .benefits-list {
+    text-align: left;
+    font-size: 1.3rem;
+    color: #C71585;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .benefit-gif {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ===== Side Photos (FIXED) ===== */
+  .side-photo {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;          /* adjust size */
+    max-width: 22vw;       /* responsive */
+    height: auto;
+    z-index: 0;
+    opacity: 0.95;
+    pointer-events: none;
+  }
+
+  .left-photo {
+    left: 20px;
+  }
+
+  .right-photo {
+    right: 20px;
+  }
+
+  /* Push your content above the side photos */
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* On smaller screens, hide side images */
+  @media (max-width: 900px) {
+    .side-photo {
+      display: none;
     }
-  </style>
+  }
+</style>
+
+
 </head>
 
 <body>
@@ -259,4 +257,5 @@ body > * {
 
 </body>
 </html>
+
 
